@@ -24,9 +24,9 @@ class Palindrome:
 
     def is_valid(self):
         Log.stdout('Checking if "%s" is a palindrome.' % self.sentence.text)
-        if self.sentence in self.cache:
+        if self.sentence.text in self.cache:
             Log.stdout('Hit the cache.')
-            return self.cache[self.sentence]
+            return self.cache[self.sentence.text]
         else:
             Log.stdout('Missed the cache.')
             valid = self.sentence.is_valid() and self._is_sentence_symmetrical()
