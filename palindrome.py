@@ -15,10 +15,9 @@ class Palindrome:
 
     def _is_sentence_symmetrical(self):
         while self.ordinary_index < self.half_way_index:
-            if self.sentence.characters_are_equal(self.ordinary_index, self.opposite_index):
-                self._increment_and_decrement_indexes()
-            else:
+            if not self.sentence.characters_are_equal(self.ordinary_index, self.opposite_index):
                 return False
+            self._increment_and_decrement_indexes();
         return True
 
     def is_valid(self):
