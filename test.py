@@ -13,3 +13,8 @@ assert not Palindrome('agnes i sofa').is_valid()
 assert not Palindrome('لheل').is_valid()
 assert not Palindrome('h101hb').is_valid()
 assert not Palindrome('False').is_valid()
+
+try:
+    Palindrome(['a', 'm', 'm', 'a']).is_valid()
+except TypeError as error:
+    pass

@@ -1,6 +1,8 @@
 class Sentence:
 
     def __init__(self, text):
+        if not isinstance(text, str):
+            raise TypeError
         self.text = self._remove_unimportant_characters(text)
         self.length = len(self.text)
 
