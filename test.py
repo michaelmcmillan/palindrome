@@ -1,3 +1,4 @@
+import timeit
 from palindrome import Palindrome
 
 assert Palindrome('amor roma').is_valid()
@@ -20,3 +21,6 @@ except TypeError as error:
     assert True
 else:
     assert False
+
+timing_test = 'Palindrome("Are we not pure? “No sir!” Panama’s moody Noriega brags. “It is garbage!” Irony dooms a man; a prisoner up to new era.").is_valid()'
+timeit.timeit(timing_test, 'from palindrome import Palindrome', number=1000)
