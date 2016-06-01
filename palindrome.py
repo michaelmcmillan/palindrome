@@ -9,7 +9,7 @@ class Palindrome:
         self.sentence = Sentence(text)
         self.ordinary_index = 0
         self.opposite_index = self.sentence.length - 1
-        self.half_way_index = round(self.sentence.length / 2)
+        self.half_way_index = round(self.sentence.length - 1 / 2)
 
     def _increment_and_decrement_indexes(self):
         self.ordinary_index += 1
