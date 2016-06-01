@@ -7,14 +7,14 @@ class Palindrome:
         self.sentence = Sentence(text)
         self.current_index = 0
         self.opposite_index = self.sentence.length - 1
+        self.half_way_index = round(self.sentence.length / 2)
 
     def _increment_and_decrement_indexes(self):
         self.current_index += 1
         self.opposite_index -= 1
 
     def _is_sentence_symmetrical(self):
-        half_way_into_sentence = round(self.sentence.length / 2)
-        while self.current_index < half_way_into_sentence:
+        while self.current_index < self.half_way_index:
             if self.sentence.characters_are_equal(self.current_index, self.opposite_index):
                 self._increment_and_decrement_indexes()
             else:
