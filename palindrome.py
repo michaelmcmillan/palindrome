@@ -2,7 +2,9 @@ from log import Log
 from sentence import Sentence
 
 class Palindrome:
-    
+
+    cache = {}
+
     def __init__(self, text):
         self.sentence = Sentence(text)
         self.ordinary_index = 0
@@ -21,7 +23,12 @@ class Palindrome:
         return True
 
     def is_valid(self):
-        validness = self.sentence.is_valid() and self._is_sentence_symmetrical()
-        Log.stdout('Checking if "%s" is a palindrome: %s' %
-            (self.sentence.text, '✓' if validness else 'x'))
-        return validness
+        Log.stdout('Checking if "%s" is a palindrome.' % self.sentence.text)
+        if self.sentence in self.cache:
+            Log.stdout('Hit the cache.')
+            return self.cache[self.sentence]
+        else:
+            Log.stdout('Missed the cache.')
+            valid = self.sentence.is_valid() and self._is_sentence_symmetrical()
+            self.cache[self.sentence.text] = valid
+            return valid

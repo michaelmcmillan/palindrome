@@ -15,6 +15,12 @@ assert not Palindrome('لheل').is_valid()
 assert not Palindrome('h101hb').is_valid()
 assert not Palindrome('False').is_valid()
 
+Palindrome('this goes in the cache ehcac eht ni seog siht').is_valid()
+assert Palindrome.cache['thisgoesinthecacheehcacehtniseogsiht'] == True
+
+Palindrome('this also goes in the cache').is_valid()
+assert Palindrome.cache['thisalsogoesinthecache'] == False
+
 try:
     Palindrome(['a', 'm', 'm', 'a']).is_valid()
 except TypeError as error:
