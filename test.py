@@ -17,4 +17,6 @@ assert not Palindrome('False').is_valid()
 try:
     Palindrome(['a', 'm', 'm', 'a']).is_valid()
 except TypeError as error:
-    pass
+    assert True
+else:
+    assert False
